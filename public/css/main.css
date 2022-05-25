@@ -1,0 +1,616 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url(//db.onlinewebfonts.com/c/b82329475307e0380dc1ea23f0c35266?family=adineue+PRO);
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+.font {
+	font-family: 'Roboto', sans-serif;
+	font-family: "AdineuePRO", Helvetica, Arial, sans-serif;
+	font-family: 'Bebas Neue', cursive;
+}
+
+:root {
+	--primary-color: #1F2B6C;
+	--secondary-color: #bfd2fa;
+	--bg-white: white;
+	--terniary-color: #00b8e6;
+}
+
+.grid {
+
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-gap: 200px;
+	width: 75%;
+	justify-content: center;
+	align-items: center;
+}
+
+h1 {
+	color: var(--primary-color);
+}
+
+h3 {
+	font-family: 'Bebas Neue', cursive;
+	letter-spacing: 2px;
+	font-weight: 600;
+	color: var(--terniary-color);
+}
+
+h4 {
+	font-family: "AdineuePRO", Helvetica, Arial, sans-serif;
+}
+
+img {
+	max-width: 100%;
+}
+
+.flex {
+	display: flex;
+}
+
+
+
+
+.first-header-wrapper {
+	height: 10vh;
+	display: flex;
+}
+
+.title-wrapper {
+	width: 40%;
+	justify-content: center;
+	align-items: center;
+}
+
+.contact-wrapper {
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+}
+
+.contact-container {
+	font-family: 'Bebas Neue', cursive;
+	width: 80%;
+	height: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	align-items: center;
+	justify-content: center;
+}
+
+.contact-card {
+	display: flex;
+	gap: 10px;
+}
+
+.information-container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.contact-image-wrapper {
+	width: 20%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.information-container p {
+	color: var(--primary-color);
+}
+
+.information-container a {
+	color: var(--terniary-color);
+}
+
+.second-header {
+	height: 7vh;
+	width: 100%;
+	display: flex;
+	background-color: var(--primary-color);
+	color: var(--bg-white);
+	overflow: hidden;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	overflow: hidden;
+}
+
+
+
+.left {
+	width: 50%;
+	justify-content: flex-start;
+	align-items: center;
+	margin-left: 10px;
+}
+
+.right {
+	width: 50%;
+	justify-content: flex-end;
+	align-items: center;
+	margin-right: 10px;
+}
+
+ul {
+	display: flex;
+	justify-content: space-between;
+	width: 80%;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.left a, .right a {
+	color: var(--bg-white);
+}
+
+.main-title-container {
+	height: 20vh;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2%;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+}
+
+.material-icons {
+	display: none;
+}
+
+.card {
+	
+	border: 0.5px solid var(--primary-color);
+	width: 90%;
+	
+	background-color: var(--secondary-color);
+	margin-left: 5px;
+}
+
+.doctor-information {
+	display: flex;
+	flex-direction: column;
+	
+	align-items: center;
+	letter-spacing: 2px;
+	gap: 10px;
+	color: #1F2B6C;
+}
+
+.doctor-information p {
+	font-family: 'Roboto', sans-serif;
+	font-size: 1em;
+	color: var(--primary-color);
+}
+
+.social-media {
+	display: flex;
+	justify-content: center;
+}
+
+.right ul{
+	gap: 2rem;
+	text-align: center;
+	align-items: center;
+}
+
+.social-media ul {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 50%;
+	margin: 5%;
+}
+
+.fa-brands {
+	color: var(--primary-color);
+}
+
+.social-media h2 {
+	font-family: "AdineuePRO", Helvetica, Arial, sans-serif;
+}
+
+.contact-section {
+	height: 30vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+button {
+	padding: 5px;
+	width: 100%;
+	background-color: var(--primary-color);
+	color: white;
+	border: none;
+	letter-spacing: 1px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.second-title {
+	height: 30vh;
+	font-size: 1em;
+}
+
+.c-container {
+	display: flex;
+	justify-content: center;
+}
+
+.c-wrapper {
+	width: 50%;
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.c-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 16px 12px;
+	gap: 5px;
+	background-color: var(--secondary-color);
+	border: var(--secondary-color);
+}
+
+.c-card img {
+	width: 20%;
+}
+
+.c-card h3,
+p {
+	color: var(--primary-color);
+}
+
+.c-card p {
+	font-family: 'Rubik', sans-serif;
+	font-weight: 100;
+	font-size: 1rem;
+	color: var(--primary-color);
+}
+
+footer {
+	height: 50vh;
+	background-color: var(--primary-color);
+	margin-top: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer-wrapper {
+	width: 80%;
+	height: 80%;
+	display: flex;
+	flex-direction: column;
+}
+
+.upper-footer {
+	height: 80%;
+	width: 100%;
+	display: flex;
+	border-bottom: 2px solid white;
+}
+
+.lower-footer {
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+	justify-content: space-around;
+}
+
+.fb {
+	color: var(--bg-white);
+}
+
+.footer-card {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.footer-media ul {
+	display: flex;
+	gap: 10px;
+}
+
+.c {
+	width: 40%;
+}
+
+.f2-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 5px;
+}
+
+.footer-card h1,
+p {
+	color: white;
+}
+
+.f3 {
+	width: 40%;
+}
+
+.f3 button {
+	background-color: var(--secondary-color);
+	padding: 16px 10px;
+	width: 80;
+	border-radius: 15px;
+}
+
+/* Student profile */
+
+.student-wrapper {
+	min-height: 80vh;
+	max-width: 100%;
+	justify-content: center;
+}
+
+.student-container {
+	display: flex;
+	width: 100%;	
+	
+	justify-content: space-around;
+
+	align-items: center;
+	gap: 2rem;
+	
+}
+
+.photo-container {
+
+	height: 100%;
+	width: 50%;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 2rem;
+	gap: 5rem;
+
+}
+
+.photo-btn-container {
+	flex-direction: column;
+	gap: 3rem;
+
+}
+
+.photo-btn-container button {
+	padding: 1rem 8rem;
+	border-radius: 1rem;
+}
+
+.student-photo-container {
+	max-width: 200px;
+	max-height: 200px;
+
+	border-radius: 50%;
+}
+
+.student-info-container {
+	
+	width: 50%;
+	flex-direction: column;
+	gap: 1.5rem;
+	height: 100%;
+}
+
+
+
+.btn-wrapper {
+	gap: 10%;
+	margin-top: 20px;
+
+}
+
+.btn-wrapper button {
+	padding: 15px 16px;
+	
+}
+
+.info-container {
+	
+	width: 100%;
+	height: 80%;
+	
+}
+
+.student-information, #emergency {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	font-family: 'Roboto', sans-serif;
+}
+
+
+#emergency {
+	display: none;
+	gap: 4rem;
+}
+
+.info-container ul {
+	height: 100%;
+	flex-direction: column;
+	justify-content: space-around;
+	width: 100%;
+	font-weight: bold;
+	text-align: left;
+	font-size: 1.7rem;
+	border: 2px solid #ebebeb;
+
+}
+
+/*
+*
+*
+* Dental Info
+
+*
+*
+*/
+
+.dental-container {
+	margin-top: 50px;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+.dental-btn-container {
+	
+	justify-content: center;
+	width: 50%;
+	gap: 5rem;
+	margin-left: 25%;
+	
+}
+
+.dental-btn-container button {
+	padding: 12px 25px;
+}
+
+
+.medical-info-container {
+
+	height: 80vh;
+}
+
+.person-info{
+	width: 50%;
+
+	height: 100%;
+}
+
+.medical-info {
+
+	width: 50%;
+	height: 100%;
+	justify-content: center;
+	gap: 2rem;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-left: 2px solid #ebebeb;
+}
+
+.person-info {
+	justify-content: center;
+	
+}
+
+
+.person-info img {
+	width: 50%;
+}
+
+
+.health-information {
+	border: 1px solid #ebebeb;
+	width: 20%;
+	height: 100px;
+	text-align: center;
+	
+}
+
+
+.health-information p{
+color: black;
+}
+
+.checkup-result {
+	height: 40vh;
+	align-items: center;
+    flex-direction: column;
+}
+
+.dropdown {
+	
+	display: inline;
+
+}
+
+.dropdown-content {
+
+	position: absolute;
+	background-color: #1F2B6C;
+	z-index: 1;
+	width: 10%;
+	height: 100px;
+	display: none;
+}
+
+.dropdown:hover .dropdown-content{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.dropdown-content li:hover {
+	background-color: orange;
+}
+
+
+
+img {
+	width: 100%;
+}
+
+button:focus {
+	background-color: var(--secondary-color);
+	cursor: pointer;
+}
+
+@media screen and (max-width: 732px) {
+	.right ul {
+		display: none;
+	}
+	.material-icons {
+		display: block;
+	}
+	.title-wrapper {
+		justify-content: center;
+		width: 100%;
+	}
+	.first-header {
+		flex-direction: column;
+		height: 20vh;
+	}
+	.c-wrapper {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		width: 80%;
+	}
+	.c-container {
+		height: 30vh;
+	}
+	footer {
+		margin-top: 80%;
+	}
+
+	.student-container {
+		flex-direction: column;
+		
+	}
+
+	
+}
+
