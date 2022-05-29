@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 @import url(//db.onlinewebfonts.com/c/b82329475307e0380dc1ea23f0c35266?family=adineue+PRO);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 	text-decoration: none;
+	font-family: 'Inter', sans-serif;
 }
 
 .font {
@@ -369,11 +372,8 @@ p {
 .student-container {
 	display: flex;
 	width: 100%;	
-	
-	justify-content: space-around;
-
 	align-items: center;
-	gap: 2rem;
+	
 	
 }
 
@@ -402,7 +402,6 @@ p {
 .student-photo-container {
 	max-width: 200px;
 	max-height: 200px;
-
 	border-radius: 50%;
 }
 
@@ -412,52 +411,44 @@ p {
 	flex-direction: column;
 	gap: 1.5rem;
 	height: 100%;
+	
 }
 
 
 
 .btn-wrapper {
-	gap: 10%;
+	gap: 50px;
 	margin-top: 20px;
-
+	margin-right: 10px;
 }
 
 .btn-wrapper button {
-	padding: 15px 16px;
+	padding: 10px 25px;
 	
 }
 
 .info-container {
 	
-	width: 100%;
+	width: 50%;
 	height: 80%;
 	
 }
 
-.student-information, #emergency {
+.student-information {
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	
 	font-family: 'Roboto', sans-serif;
 }
 
 
 #emergency {
 	display: none;
-	gap: 4rem;
 }
 
 .info-container ul {
 	height: 100%;
 	flex-direction: column;
-	justify-content: space-around;
 	width: 100%;
-	font-weight: bold;
-	text-align: left;
-	font-size: 1.7rem;
-	border: 2px solid #ebebeb;
-
+	font-size: 1.3rem;
 }
 
 /*

@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 include '../templates/header.php';
 
 ?>
@@ -16,29 +16,11 @@ include '../templates/header.php';
 </head>
 <body>
 
-<div class="second-header">
-        <div class="left flex"> 
-        <a href="home-page.html"> Home </a>
-        </div>
-        <div class="right flex">
-            <ul> 
-                <li><a href ="medical-record.php">Medical Record </a></li>
-                <div class="dropdown">
-                <li><a href ="medical-info.php"> Medical Info </a></li>
-                <div class="dropdown-content">
-                <li><a href ="Immunization.php">Immunization</a></li>
-                <li><a href="Deworm.php">Deworm </a></li>
-                </div>
-                </div>
-                <li><a href="dental-info.php"> Dental Record </a> </li>
-                <li><a href="checkup-result.php"> Check up Result </a> </li>
-                <li> Logout </li>
-            </ul>
-            <div class="catgeory-container">
-                <i class="material-icons">list</i>
-            </div>
-        </div>
-</div>
+<?php
+
+  include('../templates/nurseheader.php');
+
+?>
 
 
 <div class="w3-container checkup-result flex">
@@ -57,7 +39,7 @@ include '../templates/header.php';
    <?php
 
 	include '../model/Nurse.php';
-	
+	if($_SESSION['usertype'] == 'nurse'){	
 	$nurse = new Nurse;
 	$result = $nurse->getImmunization();
 
@@ -73,6 +55,27 @@ include '../templates/header.php';
 			</tr>
 		HERE;
 	} 
+	} else {
+		$id = trim($_SESSION['student_id']);
+		$nurse = new Nurse;
+		$result = $nurse->isStudentImmunization($id);
+		foreach($result as $r){
+		echo <<< HERE
+			<tr>
+				<td> $r[immun_id] </td>
+				<td> $r[vaccine_name] </td>
+				<td> $r[student_id] </td>
+				<td> $r[Nurse] </td>
+				<td> $r[parents_consent] </td>
+				<td> $r[date_of_immunization] </td>		
+			</tr>
+		HERE;
+	} 	
+
+
+
+	
+	}
 	
    ?>
 

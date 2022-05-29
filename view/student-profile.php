@@ -70,7 +70,7 @@ include '../database/Database.php';
                 
                 </ul>
                 <ul id="emergency">
-                
+
                 <li><a>Guardian: Jerome Doe </a></li>
                 <li><a>Relationship: Father </a></li>
                 <li><a>Address: Tisa Cebu City</a></li>

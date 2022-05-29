@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 include '../database/Database.php';
 include '../model/User.php';
 
@@ -17,20 +17,23 @@ if(isset($_POST['submit'])){
     $password = $_POST['password'];
 
     $connection = $database->getConnection();
-    $sql = 'SELECT acc_number from acc_details where person_id = :idno and password = :password';
+    $sql = 'SELECT person_id from acc_details where person_id = :idno and password = :password';
     $statement = $connection->prepare($sql);
     $statement->bindParam(':idno', $user);
     $statement->bindParam(':password', $password);
     $statement->execute();
-
+    $idno = $statement->fetch();
     $result = $statement->rowCount();
-
-    if($result >= 1){
-	    header('location: ../view/home-page.html');
+ 
+     $_SESSION['usertype'] = $_POST['usertype'];
+     $_SESSION['student_id'] = $idno['person_id']; 
+    if($result >=1){
+    
+    	header('location: ../view/home-page.html');
     } else {
-        echo 2;
+    
+    	header('location: /Clinique');
     }
-
 }
 
 

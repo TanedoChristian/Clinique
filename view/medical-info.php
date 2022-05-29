@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include '../templates/header.php';
 
 ?>
@@ -31,7 +31,7 @@ include '../templates/header.php';
                 </div>
                 <li><a href="dental-info.php"> Dental Record </a> </li>
                 <li><a href="checkup-result.php"> Check up Result </a> </li>
-                <li> Logout </li>
+                <li><a href="../scripts/logout.php"> Logout </a></li>
             </ul>
             <div class="catgeory-container">
                 <i class="material-icons">list</i>
@@ -58,6 +58,35 @@ include '../templates/header.php';
 
     <tr>
 	<?php
+
+  if($_SESSION['usertype'] != 'nurse')
+  {
+    include '../model/Nurse.php';
+		
+		$nurse = new Nurse;
+    $id = $_SESSION['student_id'];
+		$result = $nurse->isStudentMedicalInfo($id);
+		if(isset($result)){
+			
+			foreach($result as $r) {
+				ECHO <<<HERE
+					<tr>
+						<td> $r[medical_information_id] </td>
+						<td> $r[student_id] </td>
+						<td> $r[Nurse] </td>
+						<td> $r[height] </td>
+						<td> $r[weight] </td>
+						<td> $r[blood_pressure] </td>
+						<td> $r[body_temp] </td>
+						<td> $r[heart_rate] </td>
+						<td> $r[date] </td>
+					</tr>
+
+				HERE;
+			}
+    
+    }
+  }else {
 		include '../model/Nurse.php';
 		
 		$nurse = new Nurse;
@@ -80,6 +109,7 @@ include '../templates/header.php';
 
 				HERE;
 			}
+    }
 		}
 	?>
 

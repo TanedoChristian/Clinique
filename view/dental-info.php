@@ -1,7 +1,7 @@
 <?php
 
 
-
+session_start();
 
 include '../templates/header.php'
 
@@ -27,7 +27,7 @@ include '../templates/header.php'
                 <li><a href ="medical-record.php">Medical Record </a></li>
                 <li><a href="dental-info.php"> Dental Record </a> </li>
                 <li><a href="checkup-result.php"> Check up Result </a> </li>
-                <li> Logout </li>
+                <li><a href='../scripts/logout.php'> Logout </a></li>
             </ul>
             <div class="catgeory-container">
                 <i class="material-icons">list</i>
@@ -45,51 +45,60 @@ include '../templates/header.php'
 
   <table class="w3-table w3-striped">
     <tr>
-      <th>First Name</th>
-      <th>Condition</th>
+      <th>Dental Check Up ID</th>
+      <th>Student ID</th>
       <th>Dentist</th>
+      <th>Time</th>
       <th>Date</th>
-      <th>Visit Time</th>
+      <th> Tooth Location </th>
       <th>Comments</th>
     </tr>
-    <tr>
-      <td>R1</td>
-      <td>Cavity</td>
-      <td>Dr. John Smith</td>
-      <td>01-23-22</td>
-      <td>9:15-10:45asm</td>
-      <td>Pasta</td>
-    </tr>
-    <tr>
-       <td>R5</td>
-      <td>Stains</td>
-      <td>Dr. John Smith</td>
-      <td>01-25-22</td>
-      <td>11:50 1:45pm</td>
-      <td>Cleaning</td>
-    </tr>
-    <tr>
-    <td>l17</td>
-      <td>Cavity</td>
-      <td>Dr. James Blackh</td>
-      <td>01-25-22</td>
-      <td>11:50 1:45pm</td>
-      <td>Removal</td>
-    </tr>
-    <td>l17</td>
-      <td>Cavity</td>
-      <td>Dr. James Blackh</td>
-      <td>01-25-22</td>
-      <td>11:50 1:45pm</td>
-      <td>Removal</td>
-    </tr>
-    <td>l17</td>
-      <td>Cavity</td>
-      <td>Dr. James Blackh</td>
-      <td>01-25-22</td>
-      <td>11:50 1:45pm</td>
-      <td>Removal</td>
-    </tr>
+   <tr>
+	<?php
+		
+	include "../model/Nurse.php";
+
+    if($_SESSION['usertype'] == 'nurse'){
+		$nurse = new Nurse;
+		$result = $nurse->getDentalInfo();
+
+		foreach($result as $r){
+		echo <<<HERE
+			<tr>
+				<td> $r[dental_checkup_id]</td>
+				<td> $r[student_id]</td>
+				<td> $r[Dentist]</td>
+				<td> $r[Time]</td> 
+				<td> $r[date] </td>
+				<td> $r[tooth_location] </td>
+				<td> $r[comments] </td>
+			</tr>
+		HERE;
+		  }
+    } else {
+    echo $_SESSION['student_id'];
+    $id = trim($_SESSION['student_id']);
+		$nurse = new Nurse;
+		$result = $nurse->isStudentDentalInfo($id);
+
+		foreach($result as $r){
+		echo <<<HERE
+			<tr>
+				<td> $r[dental_check_up_id]</td>
+				<td> $r[student_id]</td>
+				<td> $r[Dentist]</td>
+				<td> $r[Time]</td> 
+				<td> $r[date] </td>
+				<td> $r[tooth_location] </td>
+				<td> $r[comments] </td>
+			</tr>
+		HERE;
+			}
+		  }
+	?>			
+	
+
+  </tr>	
   </table>
 </div>
 </div>

@@ -6,7 +6,6 @@ function showInfo(number){
     } else {
         document.getElementById("student").style.display = "none";
         document.getElementById("emergency").style.display = "flex";
-        document.getElementById("emergency").style.textAlign = "center";
     }
 
 }
