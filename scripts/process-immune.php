@@ -12,7 +12,7 @@
         
         $nurse = new Nurse;
     
-        $nurse->setImmunizationInfo($studentId, $nurseId, $parentsConsent);
+        $nurse->setImmunizationInfo($vaccineName, $studentId, $nurseId, $parentsConsent);
     
         echo "success";
     
