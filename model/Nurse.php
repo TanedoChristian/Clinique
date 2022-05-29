@@ -74,7 +74,7 @@ class Nurse {
 	public function getDeworming(){
 	
 	
-		$sql = "SELECT deworm_id, student_id, (select concat(person.first_name, ' ', person.last_name) from person where person_id = nurse_id) as Nurse, date_of_deworming, parents_consent, remarks from deworming";
+		$sql = "SELECT deworm_id, student_id, (select concat(person.first_name, ' ', person.last_name) from person where person_id = nurse_id) as Nurse, date, parents_consent, remarks from deworming";
 
 		$statement = $this->connection->query($sql);
 		$result = $statement->fetchAll();
@@ -85,7 +85,7 @@ class Nurse {
 	public function isStudentDeworming($id){
 
 
-		$sql = "SELECT deworm_id, student_id, (select concat(person.first_name, ' ', person.last_name) from person where person_id = nurse_id) as Nurse, date_of_deworming, parents_consent, remarks from deworming where student_id =:student";
+		$sql = "SELECT deworm_id, student_id, (select concat(person.first_name, ' ', person.last_name) from person where person_id = nurse_id) as Nurse, date, parents_consent, remarks from deworming where student_id =:student";
 
 		$statement = $this->connection->prepare($sql);
 		$statement->bindParam(':student', $id);
@@ -121,6 +121,45 @@ class Nurse {
 
 	
 	}
+
+	
+
+	public function setDewormInfo($studentId, $nurseId, $parentsConsent, $remarks){
+	
+		
+		$sql = "INSERT INTO deworming (student_id, nurse_id, parents_consent, remarks) values (:student_id, :nurse_id, :parents_consent, :remarks)";
+
+		$statement = $this->connection->prepare($sql);
+		$statement->bindParam(':student_id', $studentId);
+		$statement->bindParam(':nurse_id', $nurseId);
+		$statement->bindParam(':parents_consent', $parentsConsent);
+		$statement->bindParam(':remarks', $remarks);
+
+		$statement->execute();
+
+
+
+	
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
