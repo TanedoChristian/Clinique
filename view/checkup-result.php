@@ -48,32 +48,33 @@ include '../templates/header.php';
       <th>Symptomps</th>
       <th>Illness</th>
     </tr>
-    <tr>
-      <td>07/18/22</td>
-      <td>9:45-10:15am</td>
-      <td>Rn. Johnny Lim</td>
-      <td>Bioflu</td>
-      <td>Asthma</td>
-      <td>Flu</td>
-    </tr>
-    <tr>
-      <td>09/20/22</td>
-      <td>10:45-11:15am</td>
-      <td>Rn. Johnny Lim</td>
-      <td>Biogesic</td>
-      <td>Fever</td>
-      <td>Headache</td>
-    </tr>
-    <tr>
-    <tr>
-      <td>03/06/22</td>
-      <td>8:45-9:30am</td>
-      <td>Rn. Joy Sabella</td>
-      <td>Biogesic</td>
-      <td>High Temparature</td>
-      <td>Fever</td>
-    </tr>
-  </table>
+	<?php
+
+		include '../model/Nurse.php';
+		
+		$nurse = new Nurse;
+		$result = $nurse->getCheckUpResult();
+
+		foreach($result as $r){
+		
+			echo <<< HERE
+				<tr>	
+				<td> $r[date] </td>
+				<td> $r[student_id] </td>
+				<td> $r[nurse] </td>
+				<td> $r[symptoms] </td>
+				<td> $r[illness] </td>
+				<td> $r[prescription_name] </td>
+				</tr>
+			HERE;
+		
+		
+		}
+
+	?>
+
+
+     </table>
 </div>
 
 
