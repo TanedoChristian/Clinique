@@ -22,7 +22,7 @@
             <label for="" class="lbl">Student ID: </label>
             <input type="text" id="#" name="#"><br>
             <label for="" class="lbl">Parent's Consent: </label>
-            <input type="file" class=""><br>
+            <input type="text" class=""><br>
             
             <input type="submit" value="Submit">
             <input type="reset" value="Cancel">       
