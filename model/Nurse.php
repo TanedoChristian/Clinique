@@ -46,7 +46,7 @@ class Nurse {
 
 	public function getImmunization(){
 		
-		$sql = "SELECT immunization.immun_id, vaccine.vaccine_name, student_id, (select concat(person.first_name, ' ' ,person.last_name) from person  where person_id = nurse_id) as Nurse, parents_consent, date_of_immunization from immunization inner join vaccine on vaccine.vaccine_id = immunization.vaccine_id";
+		$sql = "SELECT immunization.immun_id, vaccine.vaccine_name, student_id, (select concat(person.first_name, ' ' ,person.last_name) from person  where person_id = nurse_id) as Nurse, parents_consent, date from immunization inner join vaccine on vaccine.vaccine_id = immunization.vaccine_id";
 
 		$statement = $this->connection->query($sql);
 		$result = $statement->fetchAll();
@@ -58,7 +58,7 @@ class Nurse {
 
 	public function isStudentImmunization($id){
 	
-	$sql = "SELECT immunization.immun_id, vaccine.vaccine_name, student_id, (select concat(person.first_name, ' ' ,person.last_name) from person  where person_id = nurse_id) as Nurse, parents_consent, date_of_immunization from Immunization inner join vaccine on vaccine.vaccine_id = immunization.vaccine_id where student_id =:id";
+	$sql = "SELECT immunization.immun_id, vaccine.vaccine_name, student_id, (select concat(person.first_name, ' ' ,person.last_name) from person  where person_id = nurse_id) as Nurse, parents_consent, date from Immunization inner join vaccine on vaccine.vaccine_id = immunization.vaccine_id where student_id =:id";
 	
 	$statement = $this->connection->prepare($sql);
 	$statement->bindParam(':id', $id);
@@ -137,9 +137,18 @@ class Nurse {
 
 		$statement->execute();
 
+	}
 
+	public function setImmunizationInfo($vaccineName, $studentId, $nurseId, $parentsConsent){
+		$sql = "INSERT INTO immunization (student_id, vaccine_id, nurse_id, parents_consent) VALUES (:s, :v, :n, :p)";
 
-	
+		$statement = $this->connection->prepare($sql);
+		$statement->bindParam(':s', $studentId);
+		$statement->bindParam(':v', $vaccineName);
+		$statement->bindParam(':n', $nurseId);
+		$statement->bindParam(':p', $parentsConsent);
+
+		$statement->execute();
 	}
 
 

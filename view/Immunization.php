@@ -51,7 +51,7 @@ include '../templates/header.php';
 				<td> $r[student_id] </td>
 				<td> $r[Nurse] </td>
 				<td> $r[parents_consent] </td>
-				<td> $r[date_of_immunization] </td>		
+				<td> $r[date] </td>		
 			</tr>
 		HERE;
 	} 
@@ -67,7 +67,7 @@ include '../templates/header.php';
 				<td> $r[student_id] </td>
 				<td> $r[Nurse] </td>
 				<td> $r[parents_consent] </td>
-				<td> $r[date_of_immunization] </td>		
+				<td> $r[date] </td>		
 			</tr>
 		HERE;
 	} 	

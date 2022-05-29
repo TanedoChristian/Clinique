@@ -4,7 +4,7 @@
 class Database {
 
     private $connection = "";
-    private $server = "localhost";
+    private $server = "192.168.1.17";
     private $database = "clinique";
     private $user = "root";
     private $password = "";
