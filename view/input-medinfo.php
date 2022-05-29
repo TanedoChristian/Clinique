@@ -5,6 +5,7 @@
 
 
 <body>
+<h1>New Medical Info</h1>
     <form action="../scripts/process-medinfo.php" method="POST">
             
             <label for="" class="lbl">ID Number: </label>

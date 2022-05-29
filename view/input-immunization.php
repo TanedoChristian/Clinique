@@ -4,7 +4,7 @@
 ?>
 
 <body>
-
+<h1>New Immunization Info</h1>
 <form action="../scripts/process-immune.php" method="POST">
             
             <label for="" class="lbl">Vaccine Name: </label>
