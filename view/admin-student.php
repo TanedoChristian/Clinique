@@ -2,6 +2,7 @@
 
 
 include '../templates/header.php';
+include '../templates/adminheader.php';
 
 
 
@@ -27,6 +28,13 @@ include '../templates/header.php';
             </div>
         </div>
 </div>
+<div class="immun-btn-container">
+
+	<button><a href="input-student-accout.php">Add Record </a></button>
+
+
+</div>
+
 
 
 <div class="w3-container checkup-result flex">
