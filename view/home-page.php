@@ -55,27 +55,23 @@
             </div>
         </div>
     </div>
-    <div class="second-header">
-        <div class="left flex"> 
-            <a href="#"> Home </a>
-        </div>
-        <div class="right flex">
-            <ul> 
-                <li><a href ="student-profile.php">My Profile </a></li>
-                <li><a href ="medical-record.php">Medical Record </a></li>
-            
-                       
-                <li><a href="dental-info.php"> Dental Record </a> </li>
-                <li><a href="checkup-result.php"> Check up Result </a> </li>
-		<li><a href="../scripts/logout.php"> Logout </li>
-            </ul>
-            <div class="catgeory-container">
-                <i class="material-icons">list</i>
-            </div>
-        </div>
-    </div>
 
-        <div class="main-title-container">
+	<?php
+
+		session_start();
+
+		if(isset($_SESSION['usertype'])){
+			 
+			 	if($_SESSION['usertype'] == 'nurse'){ include '../templates/nurseheader.php';}
+			 	else if($_SESSION['usertype'] == 'admin'){include '../templates/adminheader.php';}
+			 else { include '../templates/nurseheader.php'; }
+			 }
+
+	?>
+
+
+
+           <div class="main-title-container">
             <h3> TRUSTED CARE </h3>
             <h1> Our Doctors </h1>
         </div>

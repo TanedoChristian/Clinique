@@ -562,9 +562,48 @@ color: black;
 
 .immun-btn-container {
 
-	border: 2px solid red;
+
 
 }
+
+.form-container{
+
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+.form-container form {
+
+	display: flex;
+	flex-direction: column;
+	font-size: 1.3rem;
+	gap: 0.5rem;
+}
+
+
+.dental-btn {
+	margin-top: 50px;
+}
+
+.form-container input {
+	padding: 3px 30px;
+}
+
+.submit-btn{
+	display: flex;
+	justify-content: space-between;
+	
+}
+
+.submit-btn input[type="submit"], input[type="reset"] {
+	background-color: #1F2B6C;
+	color: white;
+	cursor: pointer;
+	padding: 3px 30px;
+}
+
 
 .error { color: red; }
 

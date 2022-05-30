@@ -5,6 +5,7 @@ session_start();
  ?>
 
 <body>
+<div class="form-container flex">
 <h1>New Check-up Record</h1>
 <form action="../scripts/process-checkup.php" method="POST">
             
@@ -16,10 +17,13 @@ session_start();
             <input type="text" name="illness"><br>
             <label for="" class="lbl">Prescription:</label>
             <input type="text" name="prescription"><br>
-         
-            <input type="submit" value="Back">
-           <input type="submit" value="Save Changes" name="submit">       
+           
+            <div class="submit-btn">
+            <input type="submit" value="Submit" name="submit">
+            <input type="reset" value="Cancel">       
+            </div>     
 </form> 
+<div class="form-container flex">
 
 </body>
 

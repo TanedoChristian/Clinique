@@ -5,25 +5,12 @@ include '../templates/adminheader.php';
 
 ?>
 
-<div class="second-header">
-        <div class="left flex"> 
-        <a href="home-page.html"> Home </a>
-        </div>
-        <div class="right flex">
-            <ul> 
-                <li><a href ="medical-record.php">Medical Record </a></li>
-                <li><a href ="medical-info.php">Medical Info </a></li>
-                        <li><a href ="Immunization.php">Immunization</a></li>
-                        <li><a href ="Deworm.php">Deworm </a></li>
-                <li><a href="dental-info.php"> Dental Record </a> </li>
-                <li><a href="checkup-result.php"> Check up Result </a> </li>
-                <li> Logout </li>
-            </ul>
-            <div class="catgeory-container">
-                <i class="material-icons">list</i>
-            </div>
-        </div>
-</div>
+
+
+
+<div class="w3-container checkup-result flex">
+
+<h1> Nurse Account  </h1>
 
 <div class="immun-btn-container">
 
@@ -33,9 +20,6 @@ include '../templates/adminheader.php';
 </div>
 
 
-<div class="w3-container checkup-result flex">
-
-<h1> Admin  </h1>
   <table class="w3-table w3-striped">
     <tr>
       <th>ID Number</th>

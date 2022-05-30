@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
      $_SESSION['student_id'] = $idno['person_id']; 
     if($result >=1){
     
-    	header('location: ../view/home-page.html');
+    	header('location: ../view/home-page.php');
     } else {
     
     	header('location: /Clinique');
