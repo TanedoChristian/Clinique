@@ -12,7 +12,12 @@
                 <li><a href="Deworm.php">Deworm </a></li>
                 </div>
                 </div>
+		<div class="dropdown">
                 <li><a href="dental-info.php"> Dental Record </a> </li>
+		<div class="dropdown-content">
+                <li><a href ="appointment-list.php">Dental Appointments</a></li>
+                </div>
+                </div>
                 <li><a href="checkup-result.php"> Check up Result </a> </li>
                 <li><a href="../scripts/logout.php">Logout</a></li>
             </ul>

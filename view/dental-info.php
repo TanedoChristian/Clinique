@@ -3,8 +3,8 @@
 
 session_start();
 
-include '../templates/header.php'
-
+include '../templates/header.php';
+include '../templates/nurseheader.php';
 
 ?>
 
@@ -18,31 +18,19 @@ include '../templates/header.php'
     <title>Dental Info</title>
 </head>
 <body>
-<div class="second-header">
-        <div class="left flex"> 
-        <a href="home-page.html"> Home </a>
-        </div>
-        <div class="right flex">
-            <ul> 
-                <li><a href ="medical-record.php">Medical Record </a></li>
-                <li><a href="dental-info.php"> Dental Record </a> </li>
-                <li><a href="checkup-result.php"> Check up Result </a> </li>
-                <li><a href='../scripts/logout.php'> Logout </a></li>
-            </ul>
-            <div class="catgeory-container">
-                <i class="material-icons">list</i>
-            </div>
-        </div>
-</div>
-
 <div class="dental-container flex">
     <div class="dental-btn-container flex">
-        <button><a href="dental-info.php">Dental Record </a></button>
+	<h1> Dental Record </h1>
+<div class="immun-btn-container">
+
+	<button><a href="input-dental-record.php">Add Record </a></button>
 
 
-        <button><a href= "appointment.php">Appointment</a></button>
+</div>
+
     </div>
     <div class="w3-container">
+
 
 
   <table class="w3-table w3-striped">

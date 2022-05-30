@@ -1,8 +1,9 @@
 <?php
 
+
+session_start();
 include '../templates/header.php';
 include '../templates/nurseheader.php';
-session_start();
 
 
 ?>

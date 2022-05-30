@@ -14,6 +14,12 @@ include '../templates/nurseheader.php';
 
 <div class="w3-container checkup-result flex">
 
+<div class="immun-btn-container">
+
+	<button><a href="appointment.php">Add Record </a></button>
+
+
+</div>
 
 
 <table class="w3-table w3-striped">
