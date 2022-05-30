@@ -33,6 +33,31 @@ class Nurse {
 	
 	}
 
+	
+	public function setMedical($student_id, $nurse_id, $weight, $height, $bp, $temp, $hr){
+	
+	
+		$sql = "INSERT INTO MEDICAL_INFORMATION (student_id, nurse_id, weight, height, blood_pressure, body_temp, heart_rate) values (:s, :n, :w,:h,:bp, :temp, :hr)";
+
+		$statement = $this->connection->prepare($sql);
+		$statement->bindParam(':s', $student_id);
+		$statement->bindParam(':n', $nurse_id);
+		$statement->bindParam(':w', $weight);
+		$statement->bindParam(':h', $height);
+
+		$statement->bindParam(':bp', $bp);
+		$statement->bindParam(':temp', $temp);
+		$statement->bindParam(':hr', $hr);
+
+		$statement->execute();
+
+	
+	
+	
+	}
+
+
+
 	public function isStudentMedicalInfo($id){
 		$sql = "SELECT medical_information_id, student_id, (select concat(person.first_name, ' ', person.last_name) from person where person_id = nurse_id) as Nurse, height,weight, blood_pressure, body_temp, heart_rate, date from medical_information where student_id=:id";
 		$statement = $this->connection->prepare($sql);
@@ -247,7 +272,7 @@ class Nurse {
 	}
 
 
-
+	
 
 
 

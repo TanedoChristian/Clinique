@@ -59,7 +59,9 @@ session_start();
 	<?php
 
 		include '../model/Nurse.php';
+	$_SESSION['usertype'] = 'nurse';
 	if($_SESSION['usertype'] == 'nurse'){
+
 		$nurse = new Nurse;
 		$result = $nurse->getCheckUpResult();
 	

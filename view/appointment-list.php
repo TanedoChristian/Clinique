@@ -26,14 +26,14 @@ include '../templates/nurseheader.php';
     <tr>
       <th>Dental Check Up ID</th>
       <th>Student ID</th>
-      <th>Date</th>
       <th>Time</th>
+      <th>Date</th>
     </tr>
    <tr>
 	<?php
 		
 	include "../model/Nurse.php";
-
+	$_SESSION['usertype'] = 'nurse';
     if($_SESSION['usertype'] == 'nurse'){
 		$nurse = new Nurse;
 		$result = $nurse->getAppointment();

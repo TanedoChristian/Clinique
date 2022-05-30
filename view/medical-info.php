@@ -46,7 +46,7 @@ include '../templates/header.php';
 <h1> Medical Info  </h1>
 <div class="immun-btn-container">
 
-	<button><a href="input-.php">Add Record </a></button>
+	<button><a href="input-medinfo.php">Add Record </a></button>
 
 </div>
 
