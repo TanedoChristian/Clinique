@@ -12,6 +12,7 @@ include '../templates/header.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Document</title>
 </head>
 <body>
@@ -27,6 +28,14 @@ include '../templates/header.php';
 
 
 <h1> Immunization  </h1>
+<div class="immun-btn-container">
+
+	<button><a href="input-immunization.php">Add Record </a></button>
+
+
+</div>
+
+
   <table class="w3-table w3-striped">
     <tr>
       <th>Immunization ID</th>

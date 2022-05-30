@@ -152,8 +152,36 @@ class Nurse {
 	}
 
 
+	public function setCheckUpInfo($idNumber, $nurseId, $symtomps, $illness, $prescription){
+	
+	
+	$sql = "INSERT INTO check_up(student_id, nurse_id, symptoms, illness, prescription_name) values (:s, :n, :sy, :i, :p)";
+	
+	$statement = $this->connection->prepare($sql);
 
+	$statement->bindParam(':s', $idNumber);
+	$statement->bindParam(':n', $nurseId);
+	$statement->bindParam(':sy', $symtomps);
+	$statement->bindParam(':i', $illness);
+	$statement->bindParam(':p', $prescription);
 
+	$statement->execute();
+	
+	
+	}
+
+	public function getCheckUpResult(){
+	
+	
+		$sql = "SELECT date, student_id, (SELECT concat(first_name, ' ', last_name)  from person where person_id = nurse_id) as nurse, symptoms, illness, prescription_name from check_up";
+
+		$statement = $this->connection->query($sql);
+
+		$result = $statement->fetchAll();
+
+		return $result;
+	
+	}
 
 
 
