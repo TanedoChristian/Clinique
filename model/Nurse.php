@@ -12,7 +12,6 @@ class Nurse {
 		
 		$database = new Database;
 		$this->connection = $database->getConnection();
-	
 	}
 
 	public function getAllData($table){
@@ -98,7 +97,7 @@ class Nurse {
 
 	public function getDentalInfo(){
 	
-		$sql = "SELECT dental_checkup_id, student_id, (SELECT concat(first_name, ' ', last_name) from person where person_id = dentist_id) as Dentist, (SELECT time_in from daily_log where daily_log.daily_log_id = daily_log_id) as Time, date, tooth_location, comments from dental_check_up";
+		$sql = "SELECT dental_checkup_id, student_id, (SELECT concat(first_name, ' ', last_name) from person where person_id = dentist_id) as Dentist,time, date,tooth_location, comments from dental_check_up";
 
 		$statement = $this->connection->query($sql);
 		$statement->execute();
@@ -109,7 +108,7 @@ class Nurse {
 
 	public function isStudentDentalInfo($id){
 		
-		$sql = "SELECT dental_checkup_id, student_id, (SELECT concat(first_name, ' ', last_name) from person where person_id = dentist_id) as Dentist, (SELECT time_in from daily_log where daily_log.daily_log_id = daily_log_id) as Time, date, tooth_location, comments from dental_check_up where student_id =:student_id";
+		$sql = "SELECT dental_checkup_id, student_id, (SELECT concat(first_name, ' ', last_name) from person where person_id = dentist_id) as Dentist, time, date, tooth_location, comments from dental_check_up where student_id =:student_id";
 
 		$statement = $this->connection->prepare($sql);
 		$statement->bindParam(':student_id', $id);
@@ -183,13 +182,36 @@ class Nurse {
 	
 	}
 
+	public function isStudentResult($id){
+	
+		$sql = "SELECT date, student_id, (SELECT concat(first_name, ' ', last_name)  from person where person_id = nurse_id) as nurse, symptoms, illness, prescription_name from check_up where student_id =:id";
+
+		$statement = $this->connection->prepare($sql);
+		$statement->bindParam(':id', $id);
+		$statement->execute();
+		$result = $statement->fetchAll();
+
+		return $result;
+	
+
+	
+	
+	}
 
 
+	public function setDentalInfo($studentId, $dentistId, $toothLocation, $comments){
+	
+		$sql = "INSERT INTO DENTAL_CHECK_UP(student_id, dentist_id, tooth_location, comments)values(:s, :d,:t,:c)";
 
+		$statement = $this->connection->prepare($sql);
+		$statement->bindParam(':s', $studentId);
+		$statement->bindParam(':d', $dentistId);
+		$statement->bindParam(':t', $toothLocation);
+		$statement->bindParam(':c', $comments);
 
-
-
-
+		$statement->execute();
+	
+	}
 
 
 
