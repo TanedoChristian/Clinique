@@ -37,7 +37,15 @@ session_start();
 
 <?php
 
+if(isset($_SESSION['error'])){
 
+	echo $_SESSION['error'];
+	session_destroy();
+} else {
+	
+	echo "";
+
+}
 
 ?>
  

@@ -131,7 +131,7 @@ if(isset($_POST['submit'])){
 	
 	 if(empty($result)){
 	 	echo "Empty result";
-		$sql = "INSERT into appointment_time (date, start, end) values(:d, :s,:e)";
+		$sql = "INSERT into appointment_time (date, start, end, isAvailable) values(:d, :s,:e, True)";
 		$statement = $connection->prepare($sql);
 
 		$statement->bindParam(':d', $date);
@@ -143,30 +143,45 @@ if(isset($_POST['submit'])){
 	 } 
 
 
-	 $sql = "SELECT date, concat(start, '-', end) as datetime from appointment_time";
-	 $statement = $connection->query($sql);
+	 $sql = "SELECT timeId from appointment_time where start =:s and end =:e and date=:d";
+	 $statement = $connection->prepare($sql);
 
-	 $result = $statement->fetchAll();
-	 $statement->closeCursor();
-	 foreach($result as $r){
+	 $statement->bindParam(':d', $date);
+	$statement->bindParam(':s', $start);
+	 $statement->bindParam(':e', $end);
+	$statement->execute();
+	 $result = $statement->rowCount();
+
+	
+	 if($result == '1'){
+	 	$_SESSION['error'] = 'Schedule Not available';
+		header('location: ../view/appointment.php');
+
+	 } else {
 	 
-		if($date == $r['date'] &&  $timeSlot == $r['datetime']){
-			header('location: ../view/appointment.php');
-			break;
-	 	} else { 
-			echo $r['date'] ." ". $r['datetime'];	
-			$query = "INSERT INTO appointment_time(date, start,end) values(:d,:s,:e)";
-			$stmnt = $connection->prepare($query);
+		$sql = "INSERT into appointment_time (date, start, end, isAvailable) values(:d, :s,:e, True)";
+		$statement = $connection->prepare($sql);
 
-			$stmnt->bindParam(':d', $date);
-			$stmnt->bindParam(':s', $start);
-			$stmnt->bindParam(':e', $end);
+		$statement->bindParam(':d', $date);
+		$statement->bindParam(':s', $start);
+		$statement->bindParam(':e', $end);
 
-			$stmnt->execute();
+		$statement->execute();
+		$statement->closeCursor();
 
-		}
-	 
+		$sql = "INSERT INTO DENTAL_BOOKING(student_id, date, time) values (:s, :d, :t)";
+
+		$statement = $connection->prepare($sql);
+		$statement->bindParam(':s', $student_id);
+		$statement->bindParam(':d', $date);
+		$statement->bindParam(':t', $timeSlot);
+		$statement->execute();
+		$statement->closeCursor();
+
+	 		
 	 }
+	
+	
 
 }
 
