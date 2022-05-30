@@ -27,6 +27,13 @@ include '../templates/header.php';
 
 
 <h1> Deworm  </h1>
+<div class="immun-btn-container">
+
+	<button><a href="input-deworm.php">Add Record </a></button>
+
+</div>
+
+
   <table class="w3-table w3-striped">
     <tr>
       <th>Deworm ID</th>

@@ -44,6 +44,13 @@ include '../templates/header.php'
     </div>
     <div class="w3-container">
 
+    <div class="immun-btn-container">
+
+	<button><a href="input-immunization.php">Add Record </a></button>
+
+
+</div>
+
 
   <table class="w3-table w3-striped">
     <tr>

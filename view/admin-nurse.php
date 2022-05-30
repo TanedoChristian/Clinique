@@ -1,9 +1,7 @@
 <?php 
 
 include '../templates/header.php';
-
-
-
+include '../templates/adminheader.php';
 
 ?>
 
@@ -25,6 +23,13 @@ include '../templates/header.php';
                 <i class="material-icons">list</i>
             </div>
         </div>
+</div>
+
+<div class="immun-btn-container">
+
+	<button><a href="input-nurse-account.php">Add Record </a></button>
+
+
 </div>
 
 
