@@ -37,8 +37,8 @@ include '../templates/header.php'
 
 <div class="dental-container flex">
     <div class="dental-btn-container flex">
-        <button>Dental Record </button>
-        <button>Appointment </button>
+        <button><a href="dental-info.php">Dental Record </a></button>
+        <button><a href= "appointment.php">Appointment</a></button>
     </div>
     <div class="w3-container">
 
@@ -68,8 +68,8 @@ include '../templates/header.php'
 				<td> $r[dental_checkup_id]</td>
 				<td> $r[student_id]</td>
 				<td> $r[Dentist]</td>
-				<td> $r[Time]</td> 
-				<td> $r[date] </td>
+				<td> $r[time]</td> 
+				<td> $r[date] </td> 
 				<td> $r[tooth_location] </td>
 				<td> $r[comments] </td>
 			</tr>
