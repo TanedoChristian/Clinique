@@ -38,6 +38,12 @@ include '../templates/header.php';
             </div>
         </div>
 </div>
+<div class="immun-btn-container">
+
+	<button><a href="input-medinfo.php">Add Record </a></button>
+
+</div>
+
 
 <div class="w3-container checkup-result flex">
 
