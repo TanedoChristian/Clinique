@@ -13,8 +13,6 @@ session_start();
             <label for="" class="lbl">Pick Date: </label>
             <input type="date" id="#" name="date" ><br>
            
-            <input type="submit" value="Submit" name="submit">
-            <input type="reset" value="Cancel">
             
             
             <input type="text" name="student_id" placeholder="Student ID"> 

@@ -177,7 +177,7 @@ if(isset($_POST['submit'])){
 		$statement->bindParam(':t', $timeSlot);
 		$statement->execute();
 		$statement->closeCursor();
-
+		header('location: ../view/appointment-list.php');
 	 		
 	 }
 	
