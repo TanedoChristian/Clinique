@@ -214,7 +214,37 @@ class Nurse {
 	}
 
 
+	
+	public function getAppointment(){
+	
+	
+		$sql = "SELECT dental_book_id, student_id, date, time from dental_booking";
+		$statement = $this->connection->query($sql);
 
+		$result = $statement->fetchAll();
+
+		return $result;
+	
+	
+	
+	}
+
+	public function isStudentAppoint($id){
+	
+	
+	
+		$sql = "SELECT dental_book_id, student_id, date, time from dental_booking where student_id =:id";
+
+		$statement = $this->connection->prepare($sql);
+		$statement->bindParam(':id', $id);
+		$statement->execute();
+
+		$result = $statement->fetchAll();
+
+		return $result;
+	
+	
+	}
 
 
 
