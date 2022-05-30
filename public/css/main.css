@@ -423,6 +423,10 @@ p {
 	margin-right: 10px;
 }
 
+.nurse{
+	gap: 0;
+}
+
 .btn-wrapper button {
 	padding: 10px 25px;
 	
@@ -580,6 +584,10 @@ color: black;
 	flex-direction: column;
 	font-size: 1.3rem;
 	gap: 0.5rem;
+}
+
+.nurse form {
+	gap: 0;
 }
 
 

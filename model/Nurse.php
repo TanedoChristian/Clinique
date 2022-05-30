@@ -271,6 +271,16 @@ class Nurse {
 	
 	}
 
+	public function getMonthlyReport(){
+
+
+		$sql = " SELECT count(*) as Records, date_format(date, '%M', '%Y') as month from medical_information group by year(date),month(date);";
+		$statement = $this->connection->query($sql);
+
+		$result = $statement->fetchAll();
+
+		return $result;
+	}
 
 	
 
@@ -288,7 +298,11 @@ class Nurse {
 
 
 
+$nurse = new Nurse;
 
+foreach($nurse->getMonthlyReport() as $r){
+	echo $r['month'] . '-'.  $r['Records'];
+}
 
 
 

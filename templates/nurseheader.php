@@ -1,6 +1,6 @@
 <div class="second-header">
         <div class="left flex"> 
-        <a href="home-page.html"> Clinique </a>
+        <a href="home-page.php"> Clinique </a>
         </div>
         <div class="right flex">
             <ul> 
