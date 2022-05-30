@@ -38,6 +38,8 @@ include '../templates/header.php'
 <div class="dental-container flex">
     <div class="dental-btn-container flex">
         <button><a href="dental-info.php">Dental Record </a></button>
+
+
         <button><a href= "appointment.php">Appointment</a></button>
     </div>
     <div class="w3-container">
@@ -76,7 +78,6 @@ include '../templates/header.php'
 		HERE;
 		  }
     } else {
-    echo $_SESSION['student_id'];
     $id = trim($_SESSION['student_id']);
 		$nurse = new Nurse;
 		$result = $nurse->isStudentDentalInfo($id);
@@ -84,10 +85,10 @@ include '../templates/header.php'
 		foreach($result as $r){
 		echo <<<HERE
 			<tr>
-				<td> $r[dental_check_up_id]</td>
+				<td> $r[dental_checkup_id]</td>
 				<td> $r[student_id]</td>
 				<td> $r[Dentist]</td>
-				<td> $r[Time]</td> 
+				<td> $r[time]</td> 
 				<td> $r[date] </td>
 				<td> $r[tooth_location] </td>
 				<td> $r[comments] </td>

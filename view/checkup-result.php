@@ -1,7 +1,7 @@
 <?php
 
 include '../templates/header.php';
-
+session_start();
 ?>
 
 
@@ -51,10 +51,10 @@ include '../templates/header.php';
 	<?php
 
 		include '../model/Nurse.php';
-		
+	if($_SESSION['usertype'] == 'nurse'){
 		$nurse = new Nurse;
 		$result = $nurse->getCheckUpResult();
-
+	
 		foreach($result as $r){
 		
 			echo <<< HERE
@@ -70,6 +70,26 @@ include '../templates/header.php';
 		
 		
 		}
+	} else {
+		$id = trim($_SESSION['student_id']);	
+		$nurse = new Nurse;
+		$result = $nurse->isStudentResult($id);
+	
+		foreach($result as $r){
+		
+			echo <<< HERE
+				<tr>	
+				<td> $r[date] </td>
+				<td> $r[student_id] </td>
+				<td> $r[nurse] </td>
+				<td> $r[symptoms] </td>
+				<td> $r[illness] </td>
+				<td> $r[prescription_name] </td>
+				</tr>
+			HERE;
+	}		
+	
+	}
 
 	?>
 

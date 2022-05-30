@@ -10,6 +10,7 @@
 	font-family: 'Inter', sans-serif;
 }
 
+
 .font {
 	font-family: 'Roboto', sans-serif;
 	font-family: "AdineuePRO", Helvetica, Arial, sans-serif;
@@ -565,6 +566,7 @@ color: black;
 
 }
 
+.error { color: red; }
 
 
 img {

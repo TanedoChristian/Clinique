@@ -69,7 +69,7 @@ include '../templates/header.php';
 				<td> $r[deworm_id]</td>
 				<td> $r[student_id]</td>
 				<td> $r[Nurse]</td>
-				<td> $r[date_of_deworming]</td> 
+				<td> $r[date]</td> 
 				<td> $r[parents_consent] </td>
 				<td> $r[remarks] </td>
 			</tr>

@@ -182,6 +182,22 @@ class Nurse {
 	
 	}
 
+	public function isStudentResult($id){
+	
+		$sql = "SELECT date, student_id, (SELECT concat(first_name, ' ', last_name)  from person where person_id = nurse_id) as nurse, symptoms, illness, prescription_name from check_up where student_id =:id";
+
+		$statement = $this->connection->prepare($sql);
+		$statement->bindParam(':id', $id);
+		$statement->execute();
+		$result = $statement->fetchAll();
+
+		return $result;
+	
+
+	
+	
+	}
+
 
 	public function setDentalInfo($studentId, $dentistId, $toothLocation, $comments){
 	
