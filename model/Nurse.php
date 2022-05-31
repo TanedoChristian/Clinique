@@ -122,7 +122,7 @@ class Nurse {
 
 	public function getDentalInfo(){
 	
-		$sql = "SELECT dental_checkup_id, student_id, (SELECT concat(first_name, ' ', last_name) from person where person_id = dentist_id) as Dentist,time, date,tooth_location, comments from dental_check_up";
+		$sql = "SELECT dental_checkup_id, student_id, (SELECT concat(first_name, ' ', last_name) from person where person_id = dentist_id) as Dentist ,time, date,tooth_location, comments from dental_check_up";
 
 		$statement = $this->connection->query($sql);
 		$statement->execute();
@@ -271,7 +271,18 @@ class Nurse {
 	
 	}
 
-	public function getMonthlyReport(){
+	public function getMonthlyReportDental(){
+
+
+		$sql = " SELECT count(*) as Records, date_format(date, '%M', '%Y') as month from dental_booking group by year(date),month(date);";
+		$statement = $this->connection->query($sql);
+
+		$result = $statement->fetchAll();
+
+		return $result;
+	}
+	
+	public function getMonthlyReportMedical(){
 
 
 		$sql = " SELECT count(*) as Records, date_format(date, '%M', '%Y') as month from medical_information group by year(date),month(date);";
@@ -282,6 +293,50 @@ class Nurse {
 		return $result;
 	}
 
+
+
+
+
+
+
+	public function updatePassword(){
+
+		$password = "starlink";
+		$hash_password = password_hash($password, PASSWORD_DEFAULT);
+
+		$sql = "UPDATE acc_details set password =:pass where person_id = 6001";
+
+		$statement = $this->connection->prepare($sql);
+		$statement->bindParam(':pass', $hash_password);
+		$statement->execute();
+		
+
+	}
+
+	public function setNurseAcc($nurseId, $first, $last, $middle, $age, $gender, $birth, $address, $number, $c){
+
+
+		$sql = "INSERT INTO PERSON values (:nurse_id,:lastname,:firstname, :middle, :adress, :birth, :age, ,:gender,:num,:c)";
+
+		$statement = $this->connection->prepare($sql);
+
+
+		$statement->bindParam(':nurse_id', $nurseId);
+		$statement->bindParam(':lastname', $last);
+		$statement->bindParam(':firstname', $first);
+		$statement->bindParam(':middle', $middle);
+		$statement->bindParam(':adress', $address);
+		$statement->bindParam(':age', $age);
+		$statement->bindParam(':birth', $birth);
+		$statement->bindParam(':gender', $gender);
+		$statement->bindParam(':num', $number);
+		$statement->bindParam(':c', $c);
+
+		$statement->execute();
+
+
+
+	}
 	
 
 
@@ -292,16 +347,6 @@ class Nurse {
 
 
 
-}
-
-
-
-
-
-$nurse = new Nurse;
-
-foreach($nurse->getMonthlyReport() as $r){
-	echo $r['month'] . '-'.  $r['Records'];
 }
 
 

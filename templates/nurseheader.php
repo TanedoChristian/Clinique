@@ -4,7 +4,6 @@
         </div>
         <div class="right flex">
             <ul> 
-                <li><a href ="medical-record.php">Medical Record </a></li>
                 <div class="dropdown">
                 <li><a href ="medical-info.php"> Medical Info </a></li>
                 <div class="dropdown-content">

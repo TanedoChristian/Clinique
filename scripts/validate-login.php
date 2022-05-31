@@ -13,8 +13,16 @@ $database = new Database;
 
 
 if(isset($_POST['submit'])){
+
+
+
+
+
     $user = $_POST['idno'];
     $password = $_POST['password'];
+
+
+    
 
     $connection = $database->getConnection();
     $sql = 'SELECT person_id from acc_details where person_id = :idno and password = :password';
@@ -22,6 +30,8 @@ if(isset($_POST['submit'])){
     $statement->bindParam(':idno', $user);
     $statement->bindParam(':password', $password);
     $statement->execute();
+
+
     $idno = $statement->fetch();
     $result = $statement->rowCount();
  
