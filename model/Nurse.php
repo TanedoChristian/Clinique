@@ -24,7 +24,7 @@ class Nurse {
 
 	public function getMedicalInfo(){
 	
-		$sql = "SELECT medical_information_id, student_id, (select concat(person.first_name, ' ', person.last_name) from person where person_id = nurse_id) as Nurse, height,weight, blood_pressure, body_temp, heart_rate, date from medical_information";
+		$sql = "SELECT medical_information_id, student_id, (select concat(person.first_name, ' ', person.last_name) from person where person_id = nurse_id) as Nurse, height,weight, round(computeBMI(weight, height), 2) as BMI, blood_pressure,body_temp, heart_rate, date from medical_information";
 
 		$statement = $this->connection->query($sql);
 		$result = $statement->fetchAll();
@@ -285,7 +285,7 @@ class Nurse {
 	public function getMonthlyReportMedical(){
 
 
-		$sql = " SELECT count(*) as Records, date_format(date, '%M', '%Y') as month from medical_information group by year(date),month(date);";
+		$sql = "call test()";
 		$statement = $this->connection->query($sql);
 
 		$result = $statement->fetchAll();
@@ -301,10 +301,10 @@ class Nurse {
 
 	public function updatePassword(){
 
-		$password = "starlink";
+		$password = "password";
 		$hash_password = password_hash($password, PASSWORD_DEFAULT);
 
-		$sql = "UPDATE acc_details set password =:pass where person_id = 6001";
+$sql = "UPDATE acc_details set password =:pass where person_id = 5003";
 
 		$statement = $this->connection->prepare($sql);
 		$statement->bindParam(':pass', $hash_password);
@@ -318,21 +318,44 @@ class Nurse {
 
 		$sql = "INSERT INTO PERSON values (:nurse_id,:lastname,:firstname, :middle, :adress, :birth, :age, ,:gender,:num,:c)";
 
-		$statement = $this->connection->prepare($sql);
 
+
+		$statement = $this->connection->prepare($sql);
 
 		$statement->bindParam(':nurse_id', $nurseId);
 		$statement->bindParam(':lastname', $last);
 		$statement->bindParam(':firstname', $first);
 		$statement->bindParam(':middle', $middle);
 		$statement->bindParam(':adress', $address);
-		$statement->bindParam(':age', $age);
+		$statement->bindParam(':age', $age, PDO::PARAM_INT);
 		$statement->bindParam(':birth', $birth);
 		$statement->bindParam(':gender', $gender);
 		$statement->bindParam(':num', $number);
 		$statement->bindParam(':c', $c);
-
 		$statement->execute();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

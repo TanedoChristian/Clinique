@@ -21,6 +21,7 @@ include '../templates/nurseheader.php';
       <th>Nurse</th>
       <th>Height</th>
       <th>Weight</th>
+      <th> BMI </th>
       <th>Blood Pressure</th>
       <th>Temparature</th>
       <th>Heart Rate</th>
@@ -47,6 +48,7 @@ include '../templates/nurseheader.php';
 						<td> $r[Nurse] </td>
 						<td> $r[height] </td>
 						<td> $r[weight] </td>
+						<td> $r[BMI] </td>
 						<td> $r[blood_pressure] </td>
 						<td> $r[body_temp] </td>
 						<td> $r[heart_rate] </td>
@@ -72,6 +74,7 @@ include '../templates/nurseheader.php';
 						<td> $r[Nurse] </td>
 						<td> $r[height] </td>
 						<td> $r[weight] </td>
+						<td> $r[BMI] </td>
 						<td> $r[blood_pressure] </td>
 						<td> $r[body_temp] </td>
 						<td> $r[heart_rate] </td>
