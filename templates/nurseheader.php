@@ -17,6 +17,7 @@
                 <li><a href ="appointment-list.php">Dental Appointments</a></li>
                 </div>
                 </div>
+                <li><a href="monthly-records.php"> Monthly Records </a> </li>
                 <li><a href="checkup-result.php"> Check up Result </a> </li>
                 <li><a href="../scripts/logout.php">Logout</a></li>
             </ul>
