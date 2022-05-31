@@ -18,7 +18,14 @@
                 <li><a href ="appointment-list.php">Dental Appointments</a></li>
                 </div>
                 </div>
-                <li><a href="monthly-records.php"> Monthly Records </a> </li>
+                <!-- <li><a href="monthly-records.php"> Monthly Records </a> </li> -->
+                <div class="dropdown">
+                <li><a href ="monthly-records.php"> Monthly Records </a></li>
+                <div class="dropdown-content">
+                <li><a href ="medical-records.php">Monthly Medical Records</a></li>
+                <li><a href="monthly-dental.php">Monthly Dental Records </a></li>
+                </div>
+                </div>
                 <li><a href="checkup-result.php"> Check up Result </a> </li>
                 <li><a href="../scripts/logout.php">Logout</a></li>
             </ul>
